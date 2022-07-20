@@ -2,7 +2,7 @@
 
 if [[ ! `docker ps -a | awk '{print $NF}' | grep closet_dd` ]]
 then 
-	docker run -p 8000:8000 -d -v $HOME/config/ip_vol:/ip_vol --name closet_dd devsecopscloset/closet_dojo:dev
+	docker run -p 8000:8000 -d --name closet_dd devsecopscloset/closet_dojo:dev
 fi
 
 if [[ ! `docker ps -a | awk '{print $NF}' | grep closet_octant` ]]
