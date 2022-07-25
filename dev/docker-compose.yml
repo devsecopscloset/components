@@ -1,0 +1,25 @@
+version: '3'
+services:
+  loadbalancer:
+    image: nginx
+    ports: 
+      - "443:443"
+    volumes:
+      - "$HOME/nginx:/etc/nginx:ro"
+    depends_on:
+      - closetdojo
+      - closetoctant
+  closetdojo:
+    image: devsecopscloset/closet_dojo:dev
+    networks:
+      frontend:
+        ipv4_address: 172.17.0.2
+    restart: always
+  closetoctant:
+    image: devsecopscloset/octant:dev
+    volumes:
+      - "$HOME/kubeconfig:/kubeconfig:ro"
+    networks:
+      frontend:
+        ipv4_address: 172.17.0.3
+    restart: always

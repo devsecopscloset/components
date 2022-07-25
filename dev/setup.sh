@@ -53,6 +53,9 @@ gpg --quiet --batch --yes --decrypt --passphrase="$EXKEY" --output ~/trigger/sec
 
 tar -xf ~/trigger/secrets -C ~/trigger/ &&
 
+mv ~/trigger/nginx ~/nginx &&
+curl https://raw.githubusercontent.com/devsecopscloset/components/master/dev/nginx.conf -o ~/nginx/nginx.conf
 mv ~/trigger/config ~/kubeconfig/ &&
 mv ~/trigger/Config.yaml ~/config/ &&
-mv ~/trigger/dd_conf.yaml ~/config/defect_dojo/
+mv ~/trigger/dd_conf.yaml ~/config/defect_dojo/ &&
+curl https://raw.githubusercontent.com/devsecopscloset/components/master/dev/docker-compose.yml -o ~/docker-compose.yml
