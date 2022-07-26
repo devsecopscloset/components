@@ -49,6 +49,13 @@ else
 	touch ~/kubeconfig/config
 fi
 
+if [[ -d ~/nginx ]]
+then
+	echo " "
+else
+	mkdir ~/nginx
+fi
+
 gpg --quiet --batch --yes --decrypt --passphrase="$EXKEY" --output ~/trigger/secrets ~/trigger/secrets.gpg &&
 
 tar -xf ~/trigger/secrets -C ~/trigger/ &&

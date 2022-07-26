@@ -2,7 +2,7 @@ defectdojo()
 {
     mkdir $2/defectdojo &&
     cd defectdojo &&
-    openssl req -x509 -nodes -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 365 -subj '/CN=closetdojo.strangled.net' -out ssl.crt &&
+    openssl req -x509 -nodes -newkey rsa:4096 -keyout ssl.pem -out ssl.crt -sha256 -days 365 -subj '/CN=closetdojo.strangled.net' -out ssl.crt &&
     cd ../
     echo "********Please copy the defectdojo folder into your secrets archive (secrets.gpg)********"
 }
@@ -11,7 +11,7 @@ octant()
 {
     mkdir $2/octant &&
     cd octant &&
-    openssl req -x509 -nodes -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 365 -subj "/C=IN/ST=Karnataka/L=Bengaluru/O=PwC/OU=DevSecOps/CN=closetoctant.strangled.net" &&
+    openssl req -x509 -nodes -newkey rsa:4096 -keyout ssl.pem -out ssl.crt -sha256 -days 365 -subj "/C=IN/ST=Karnataka/L=Bengaluru/O=PwC/OU=DevSecOps/CN=closetoctant.strangled.net" &&
     cd ../
     echo "********Please copy the octant folder into your secrets archive (secrets.gpg)********"
 }
