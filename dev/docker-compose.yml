@@ -7,8 +7,11 @@ services:
     volumes:
       - "$HOME/nginx:/etc/nginx:ro"
     depends_on:
-      - closetdojo_beta
-      - closetoctant_beta
+      - closetdojo
+      - closetoctant
+    networks:
+      closet:
+        ipv4_address: 192.168.0.4
     restart: always
   closetdojo:
     image: devsecopscloset/closet_dojo:dev
