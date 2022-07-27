@@ -9,17 +9,38 @@ services:
     depends_on:
       - closetdojo
       - closetoctant
-  closetdojo:
+  closetdojo_1:
     image: devsecopscloset/closet_dojo:dev
     networks:
-      frontend:
-        ipv4_address: 172.17.0.2
+      closet:
+        ipv4_address: 192.168.0.2
     restart: always
-  closetoctant:
+  closetdojo_2:
+    image: devsecopscloset/closet_dojo:dev
+    networks:
+      closet:
+        ipv4_address: 192.168.0.3
+    restart: always
+  closetoctant_1:
     image: devsecopscloset/octant:dev
     volumes:
       - "$HOME/kubeconfig:/kubeconfig:ro"
     networks:
-      frontend:
-        ipv4_address: 172.17.0.3
+      closet:
+        ipv4_address: 192.168.0.3
     restart: always
+  closetoctant_2:
+    image: devsecopscloset/octant:dev
+    volumes:
+      - "$HOME/kubeconfig:/kubeconfig:ro"
+    networks:
+      closet:
+        ipv4_address: 192.168.0.4
+    restart: always
+
+networks:
+  closet:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 192.168.0.0/24
