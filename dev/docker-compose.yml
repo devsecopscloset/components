@@ -10,21 +10,16 @@ services:
       - closetdojo_beta
       - closetoctant_beta
     restart: always
-  closetdojo_alpha:
+  closetdojo:
     image: devsecopscloset/closet_dojo:dev
     networks:
       closet:
         ipv4_address: 192.168.0.2
     restart: always
-  closetdojo_beta:
-    image: devsecopscloset/closet_dojo:dev
-    networks:
-      closet:
-        ipv4_address: 192.168.0.3
-    depends_on:
-      - closetdojo_alpha
-    restart: always
-  closetoctant_alpha:
+    deploy:
+      mode: replicated
+      replicas: 1
+  closetoctant:
     image: devsecopscloset/octant:dev
     volumes:
       - "$HOME/kubeconfig:/kubeconfig:ro"
@@ -32,16 +27,9 @@ services:
       closet:
         ipv4_address: 192.168.0.3
     restart: always
-  closetoctant_beta:
-    image: devsecopscloset/octant:dev
-    volumes:
-      - "$HOME/kubeconfig:/kubeconfig:ro"
-    networks:
-      closet:
-        ipv4_address: 192.168.0.4
-    depends_on:
-      - closetoctant_alpha
-    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
 
 networks:
   closet:
