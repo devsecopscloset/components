@@ -1,6 +1,6 @@
 defectdojo()
 {
-    mkdir $2/defectdojo &&
+    mkdir ./defectdojo &&
     cd defectdojo &&
     openssl req -x509 -nodes -newkey rsa:4096 -keyout ssl.pem -out ssl.crt -sha256 -days 365 -subj '/CN=closetdojo.strangled.net' -out ssl.crt &&
     cd ../
@@ -9,7 +9,7 @@ defectdojo()
 
 octant()
 {
-    mkdir $2/octant &&
+    mkdir ./octant &&
     cd octant &&
     openssl req -x509 -nodes -newkey rsa:4096 -keyout ssl.pem -out ssl.crt -sha256 -days 365 -subj "/C=IN/ST=Karnataka/L=Bengaluru/O=PwC/OU=DevSecOps/CN=closetoctant.strangled.net" &&
     cd ../
