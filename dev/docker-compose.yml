@@ -7,21 +7,24 @@ services:
     volumes:
       - "$HOME/nginx:/etc/nginx:ro"
     depends_on:
-      - closetdojo
-      - closetoctant
-  closetdojo_1:
+      - closetdojo_alpha
+      - closetdojo_beta
+      - closetoctant_alpha
+      - closetoctant_beta
+    restart: always
+  closetdojo_alpha:
     image: devsecopscloset/closet_dojo:dev
     networks:
       closet:
         ipv4_address: 192.168.0.2
     restart: always
-  closetdojo_2:
+  closetdojo_beta:
     image: devsecopscloset/closet_dojo:dev
     networks:
       closet:
         ipv4_address: 192.168.0.3
     restart: always
-  closetoctant_1:
+  closetoctant_alpha:
     image: devsecopscloset/octant:dev
     volumes:
       - "$HOME/kubeconfig:/kubeconfig:ro"
@@ -29,7 +32,7 @@ services:
       closet:
         ipv4_address: 192.168.0.3
     restart: always
-  closetoctant_2:
+  closetoctant_beta:
     image: devsecopscloset/octant:dev
     volumes:
       - "$HOME/kubeconfig:/kubeconfig:ro"
