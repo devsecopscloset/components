@@ -12,7 +12,7 @@ fi
 if [ -x "$(command -v docker-compose)" ]; then
     echo -e "\n\n\n\DOCKER-COMPOSE IS INSTALLED\n\n\n"
 else
-    apt install docker-compose -yqq
+    apt -yqq install docker-compose
 fi
 
 ###### DDCLIENT CONFIGURATION #######
@@ -20,7 +20,7 @@ fi
 if [ -x "$(command -v ddclient)" ]; then
     echo -e "\n\n\n\DDCLIENT IS INSTALLED\n\n\n"
 else
-    apt install ddclient -yqq &&
+    apt -yqq install ddclient &&
     mkdir /etc/ddclient &&
     echo "\n\n\n\DOWNLOADING CONFIG\n\n\n" &&
     curl -s https://raw.githubusercontent.com/devsecopscloset/components/master/dev/ddclient.conf -o /etc/ddclient/ddclient.conf &&
@@ -35,5 +35,5 @@ else
     echo -e "\n\n\n\ENABLING DDCLIENT ON STARTUP\n\n\n" &&
     systemctl enable ddclient.service &&
     echo -e "\n\n\n\STARTING DDCLIENT SERVICE\n\n\n" &&
-    systemctl start ddclient.service &&
+    systemctl start ddclient.service
 fi
