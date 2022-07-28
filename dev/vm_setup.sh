@@ -4,7 +4,7 @@ if [ -x "$(command -v docker)" ]; then
 else
     apt install docker.io -yqq &&
     echo -e "\n\n\n\x1b[31mADDING USER TO DOCKER GROUP\n\n\n"
-    usermod -aG docker $1 &&
+    usermod -aG docker $1
 fi
 
 ###### DOCKER-COMPOSE CONFIGURATION #######
