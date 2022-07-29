@@ -12,9 +12,9 @@ fi
 
 if [[ ! `docker ps -a | awk '{print $NF}' | grep closet_start` ]]
 then
-	docker run -v $HOME/config:/root/config -v $HOME/kubeconfig:/root/.kube --name closet_start -d devsecopscloset/closet_deploy:dev
+	docker run -v $HOME/config:/root/config -v $HOME/kubeconfig:/root/.kube -d devsecopscloset/closet_deploy:dev
 elif [[ `docker ps -a -f status=exited | grep closet_start` ]]
 then
 	docker rm -f closet_start &&
-	docker run -v $HOME/config:/root/config -v $HOME/kubeconfig:/root/.kube --name closet_start -d devsecopscloset/closet_deploy:dev
+	docker run -v $HOME/config:/root/config -v $HOME/kubeconfig:/root/.kube -d devsecopscloset/closet_deploy:dev
 fi
