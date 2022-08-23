@@ -61,6 +61,7 @@ gpg --quiet --batch --yes --decrypt --passphrase="$EXKEY" --output ~/trigger/sec
 tar -xf ~/trigger/secrets -C ~/trigger/ &&
 
 mv ~/trigger/nginx ~/nginx &&
+git clone https://github.com/DefectDojo/django-DefectDojo.git ~/trigger/
 curl https://raw.githubusercontent.com/devsecopscloset/components/master/dev/nginx.conf -o ~/nginx/nginx.conf
 mv ~/trigger/config ~/kubeconfig/ &&
 mv ~/trigger/Config.yaml ~/config/ &&
