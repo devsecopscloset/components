@@ -57,13 +57,15 @@ echo -e "\n2. Kubectl Install (k)"
 echo -e "\n3. Docker Compose Install (dc)"
 echo -e "\n4. Docker User Configuration (du)"
 echo -e "\n5. DDCLIENT configuration (dd)"
-echo -e "\n5. All (a)\n"
+echo -e "\n6. Basic packages install (bp)"
+echo -e "\n7. All (a)\n"
 echo -e "\e[1;31mEnter the option: (Enter mutiple options separated by space) \e[0m"
 read OPTION
 
 for i in $OPTION; do
 
     ###### DOCKER CONFIGURATION #######
+
     if [ "$i" = "d" ] || [ "$i" = "a" ]; then
         echo -e "\n\e[1;32m********* DOCKER SELECTED *********\e[0m"
         if [ -x "$(command -v docker)" ]; then
@@ -73,6 +75,13 @@ for i in $OPTION; do
         fi
     fi
 
+    ###### BASIC PACKAGES #######
+
+    if [ "$i" = "bp" ] || [ "$i" = "a" ]; then
+        echo -e "\n\e[1;32m********* BASIC PACKAGES SELECTED *********\e[0m"
+        baseinstall
+    fi    
+    
     ###### DOCKER USER GROUP CONFIGURATION #######
 
     if [ "$i" = "d" ] || [ "$i" = "a" ] || [ "$i" = "du" ]; then
