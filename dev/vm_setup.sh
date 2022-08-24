@@ -27,7 +27,7 @@ for i in $OPTION; do
             echo -e "\n\e[1;42m\e[1;31m********* DOCKER IS INSTALLED *********\e[1;0m"
         else
             echo -e "\n\e[1;42m\e[1;31m********* INSTALLING DOCKER *********\e[1;0m"
-            apt-get -qq install -y docker.io &&
+            apt-get -qq install -y docker.io
         fi
     else
         echo -e "\n\e[1;31m********* DOCKER NOT CHOSEN *********\e[0m"
@@ -71,7 +71,7 @@ for i in $OPTION; do
         else
             echo -e "\n\e[1;42m\e[1;31m********* INSTALLING KUBECTL *********\e[1;0m" &&
             curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" &&
-            install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl &&
+            install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
         fi
     else
         echo -e "\n\e[1;31m********* KUBECTL NOT CHOSEN *********\e[0m"
@@ -106,4 +106,4 @@ for i in $OPTION; do
 
 done
 
-echo -e "\n\e[1;41m\e[1;32m********* FINISHED SETTING UP *********\e[1;0m"
+echo -e "\n\e[1;41m\e[1;32m********* FINISHED SETTING UP!! REBOOT THE MACHINE *********\e[1;0m"
