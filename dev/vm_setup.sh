@@ -86,15 +86,15 @@ for i in $OPTION; do
             apt-get -qq install -y ddclient &&
             mkdir /etc/ddclient &&
             echo -e "\n\e[1;42m\e[1;31m********* DOWNLOADING CONFIG *********\e[1;0m" &&
-            # curl -s https://raw.githubusercontent.com/devsecopscloset/components/master/dev/ddclient.conf -o /etc/ddclient/ddclient.conf &&
-            # curl -s https://raw.githubusercontent.com/ddclient/ddclient/develop/sample-etc_rc.d_init.d_ddclient.ubuntu -o /etc/systemd/system/ddclient.service &&
-            # read -p 'Enter the username: ' username &&
-            # read -p 'Enter the password: ' password &&
-            # read -p 'Enter the domain names in comma separated values : ( example.com, example2.com ) ' domains &&
+            curl -s https://raw.githubusercontent.com/devsecopscloset/components/master/dev/ddclient.conf -o /etc/ddclient/ddclient.conf &&
+            curl -s https://raw.githubusercontent.com/ddclient/ddclient/develop/sample-etc_rc.d_init.d_ddclient.ubuntu -o /etc/systemd/system/ddclient.service &&
+            read -p 'Enter the username: ' username &&
+            read -p 'Enter the password: ' password &&
+            read -p 'Enter the domain names in comma separated values : ( example.com, example2.com ) ' domains &&
             echo -e '\n\e[1;42m\e[1;31m********* CREATING CONFIGURATION FOR DDCLIENT *********\e[1;0m' &&
-            # echo 'username= '$username >> /etc/ddclient/ddclient.conf &&
-            # echo 'password= '$password >> /etc/ddclient/ddclient.conf &&
-            # echo $domains >> /etc/ddclient/ddclient.conf &&
+            echo 'username= '$username >> /etc/ddclient/ddclient.conf &&
+            echo 'password= '$password >> /etc/ddclient/ddclient.conf &&
+            echo $domains >> /etc/ddclient/ddclient.conf &&
             echo -e "\n\e[1;42m\e[1;31m********* ENABLING DDCLIENT ON STARTUP *********\e[1;0m" &&
             systemctl enable ddclient.service &&
             echo -e "\n\e[1;42m\e[1;31m********* STARTING DDCLIENT SERVICE *********\e[1;0m"
