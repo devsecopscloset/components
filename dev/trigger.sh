@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd ~/django-DefectDojo &&
+sed -i 's/DD_PORT:-8080/DD_PORT:-8000/g' &&
 [ -x dc-up-d.sh ] || chmod +x dc-up-d.sh
 /bin/bash dc-up-d.sh mysql-rabbitmq &&
 # rm -rf ~/django-DefectDojo &&
