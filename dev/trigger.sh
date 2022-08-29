@@ -11,4 +11,4 @@ then
 	docker run -v $HOME/kubeconfig:/kubeconfig -p 7777:7777 --restart always -d devsecopscloset/octant:dev
 fi
 
-docker run -v $HOME/config:/root/config -v $HOME/kubeconfig:/root/.kube -d devsecopscloset/closet_deploy:dev
+docker run -v $HOME/config:/root/config -v $HOME/kubeconfig:/root/.kube -d devsecopscloset/closet_deploy:sonar
