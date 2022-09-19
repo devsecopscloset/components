@@ -1,0 +1,25 @@
+name: result_push
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'dev/images/result_push/**'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'dev/images/result_push/**'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: |
+        echo "${{ secrets.DOCKERPW }}" | docker login -u "devsecopscloset" --password-stdin
+        docker image build /home/runner/work/components/components/dev/images/result_push/ -t devsecopscloset/result_push:dev 
+        docker push devsecopscloset/result_push:dev
