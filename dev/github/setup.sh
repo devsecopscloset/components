@@ -46,6 +46,7 @@ then
 	fi
 else
 	mkdir ~/kubeconfig &&
+	chown -R $USER:$USER ~/kubeconfig &&
 	touch ~/kubeconfig/config
 fi
 
